@@ -1,7 +1,7 @@
 # 4chan-Laravel
 ===================
 
-![Mockup]("mockup.png") 
+![Mockup](mockup.png) 
 
 A 4chan clone that is written in Laravel. Uses Twitter Bootstrap for front-end. 
 
