@@ -1,0 +1,50 @@
+body{
+    background: #ffe url(/img/fade.png) top repeat-x;
+    font: 13px/1.231 arial,helvetica,clean,sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.home-panel{
+    border: 1px solid black;
+    border-radius: 0!important;
+}
+.red-panel, .board-panel{
+    background-color: #800!important;
+    background-image: none!important;
+    padding: 0;
+    padding-left: 10px;
+    margin: 0!important;
+    border-radius: 0!important;
+}
+.board-panel{
+    background-color: #fca!important;
+}
+.red-panel *, .board-panel *{
+    margin: 0;
+    color: #fff;
+}
+.board-panel *,
+.stats strong,
+.bottom-nav ul li a
+{
+    color: #800;
+}
+.stats{
+    list-style-type: none;
+}
+
+.bottom-nav ul{
+    text-align: center;
+    border-top:1px solid #800;
+}
+.bottom-nav ul li.first{
+    border-left: 1px solid #800;
+}
+.bottom-nav ul li{
+    display:inline;
+    background-color: #fed;
+    margin: -2px;
+    padding: 0 5px 5px 5px;
+    border: 1px solid #800;
+    border-left: none;
+}
