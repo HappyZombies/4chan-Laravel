@@ -16,6 +16,21 @@ body{
     margin: 0!important;
     border-radius: 0!important;
 }
+.board-nav{
+    color: #B86;
+}
+#bannerImg{
+    border: 1px solid #800;
+}
+.board-nav span a, .boardTitle{
+    color: #800;
+}
+.boardTitle{
+    font-family: Tahoma,sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: -2px;
+}
 .board-panel{
     background-color: #fca!important;
 }
