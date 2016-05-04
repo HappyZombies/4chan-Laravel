@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>4chan</title>
+    <link rel="shortcut icon" href="{{ URL::asset('favicon.ico') }}" >
     <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
@@ -11,6 +12,7 @@
 </head>
 <body>
 <div class="container">
+    <a href="{{ URL::asset('/') }}"><img src="{{ URL::asset('img/cat.png') }}" class="img-responsive center-block" ></a>
     @yield('content')
 
     <!--Bottom Nav-->

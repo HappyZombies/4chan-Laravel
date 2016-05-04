@@ -1,11 +1,7 @@
 @extends('layout.home')
 
 @section('content')
-    <div class="container">
-        <img src="{{ URL::asset('img/cat.png') }}" class="img-responsive center-block" >
-
         <div class="row">
-
             <!--Who is this 4chan ? -->
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default home-panel">
@@ -58,9 +54,5 @@
                     </div>
                 </div>
             </div>
-
-
-
         </div>
-    </div>
 @endsection
