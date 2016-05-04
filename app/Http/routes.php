@@ -12,4 +12,5 @@
 */
 
 Route::get('/', 'HomeController@index');
-Route::get('/{board_url}', 'HomeController@show');
+Route::get('/board/{board_url}', 'BoardController@show');
+Route::get('/rules', 'HomeController@rules');

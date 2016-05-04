@@ -9,13 +9,9 @@ class HomeController extends Controller
 {
     public function index(){
         $boards = Board::all();
-        return view('welcome')->with('boards', $boards);
+        return view('home.index')->with('boards', $boards);
     }
-    public function show($board_url){
-        if(is_numeric($board_url)){
-            return redirect(Board::where('id', $board_url)->first()->board_url);
-        }
-        $board = Board::where('board_url', $board_url)->first();
-        return view('show')->with('board', $board);
+    public function rules(){
+        return view('home.rules');
     }
 }
