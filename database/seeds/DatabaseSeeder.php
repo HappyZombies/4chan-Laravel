@@ -21,5 +21,22 @@ class DatabaseSeeder extends Seeder
                 'board_url'=>'b'
             ]
          ]);
+
+        DB::table('threads')->insert([
+            [
+                'board_id'=>1,
+                'title'=>'Welcome to /pol/!',
+                'author'=>'DeeJay',
+                'comment'=>'Make sure you read the rules before you start!',
+                'image'=>'4chan.png',
+            ],
+            [
+                'board_id'=>2,
+                'title'=>'Welcome to /b/!',
+                'author'=>'DeeJay',
+                'comment'=>'Make sure you read the rules before you start!',
+                'image'=>'4chan.png',
+            ]
+        ]);
     }
 }
