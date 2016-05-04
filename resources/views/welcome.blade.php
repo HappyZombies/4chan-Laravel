@@ -1,8 +1,10 @@
-@extends('layout.home')
+@extends('layout.base')
 
 @section('content')
     <div class="container">
+
         <img src="{{ URL::asset('img/cat.png') }}" class="img-responsive center-block" >
+
 
         <div class="row">
 
@@ -27,7 +29,7 @@
                     <div class="panel-body">
                         <ul>
                             @foreach($boards as $board)
-                                <li><a href="{{ URL::asset('/') }}board/{{ $board->board_url   }}">{{ $board->board_name }}</a></li>
+                                <li><a href="{{ $board->board_url   }}">{{ $board->board_name }}</a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -59,8 +61,28 @@
                 </div>
             </div>
 
-
+            <!--Bottom Nav-->
+            <div class="col-md-10 col-md-offset-1">
+                <nav class="bottom-nav ">
+                    <ul>
+                        <li class="first"><a href="#">Home</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Rules</a></li>
+                        <li><a href="#">Support 4chan</a></li>
+                        <li><a href="#">Advertise</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">日本語</a></li>
+                    </ul>
+                </nav>
+            </div>
 
         </div>
+
+
+
+
+
     </div>
 @endsection
