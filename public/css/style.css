@@ -3,7 +3,84 @@ body{
     font: 13px/1.231 arial,helvetica,clean,sans-serif;
     margin: 0;
     padding: 0;
+    color: #800;
 }
+a, a:visited{
+    color: #00e;
+    text-decoration: none;
+}
+hr{
+    border: none;
+    border-top: 1px solid #D9BFB7;
+    height: 0;
+}
+label{
+    background-color: #EA8;
+    padding: 0 0 0 5px!important;
+    border: 1px solid #800;
+}
+textarea:focus, input:focus{
+    border-color: #D9BFB7!important;
+}
+blockquote{
+    border: none!important;
+}
+/** Boards/Threads**/
+.ad{
+    border: 1px solid #800;
+    max-width: 800px;
+    padding: 40px;
+}
+.ad p{
+    margin: 0;
+}
+.newThread{
+    font-size: 22px;
+    font-weight: bold;
+}
+.newThread span{
+    color: #00e;
+}
+.newThread span:hover, .hideIcon:hover{
+    color: #800;
+    cursor: pointer;
+}
+#newThread-form{
+    max-width: 936px;
+    margin: 10px auto;
+}
+.thread-container{
+    clear: both;
+    margin: 0;
+    height: auto;
+}
+.threadThumbnail {
+    float: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 3px;
+    margin-bottom: 5px;
+}
+.threadImg {
+    height: auto;
+    max-width: 200px;
+}
+.expandedImg {
+    max-width: none!important;
+}
+.threadThumbnail-push {
+    float: none;
+}
+#thread-author{
+    color: #117743;
+}
+#thread-title, #thread-id, #thread-comment, #thread-author{
+    font-weight: bold;
+}
+#thread-message{
+    font-size: inherit;
+}
+/**Home page stuff */
 .home-panel{
     border: 1px solid black;
     border-radius: 0!important;
@@ -22,7 +99,7 @@ body{
 #bannerImg{
     border: 1px solid #800;
 }
-.board-nav span a, .boardTitle{
+.board-nav span a{
     color: #800;
 }
 .boardTitle{
