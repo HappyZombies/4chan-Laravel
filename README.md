@@ -11,7 +11,7 @@ Getting Started
 You **need** to have [Laravel](https://laravel.com/) to run this site. 
 
 * Create your .env file accordingly 
-* You *made* need to update your config/database.php accordingly as well.
+* You *may* need to update your config/database.php accordingly as well.
 * composer install
 * php artisan migrate:refresh --seed
 * php artisan serve
