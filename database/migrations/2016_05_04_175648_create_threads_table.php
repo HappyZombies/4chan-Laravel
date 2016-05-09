@@ -14,11 +14,12 @@ class CreateThreadsTable extends Migration
     {
         Schema::create('threads', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('board_id')->unsigned()->index();
+            $table->integer('board_id')->unsigned();
+            $table->foreign('board_id')->references('id')->on('boards');
             $table->string('title');
             $table->string('author');
             $table->text('comment');
-            $table->string('image');
+            $table->string('file');
             $table->timestamps();
         });
     }
