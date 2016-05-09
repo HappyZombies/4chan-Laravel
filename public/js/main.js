@@ -31,6 +31,18 @@ $(function(){
         return false;
     });
 
+    //GreenText code gotten from http://codepen.io/anon/pen/cHgmb , code has been modified!
+    $.fn.tweetify = function() {
+        this.each(function() {
+            $(this).html(
+                $(this).html()
+                    .replace(/(^|\s)&gt;(.*?)(<br( )*(\/)?( )*>|\n|$)/g,'$1<span class="quote">>$2</span>$3')
+            );
+        });
+        return $(this);
+    };
+    $("blockquote").tweetify();
+
 
     window.onload = RandomBanner;
 });
