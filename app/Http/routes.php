@@ -26,5 +26,7 @@ Route::group(['prefix' => 'board'], function(){
     Route::get('{board_url}/thread/{thread}', 'BoardController@show');
 });
 
-
-Route::post('thread/new/{board_id}', 'ThreadController@store');
+Route::group(['prefix' => 'thread'], function(){
+    Route::post('new/{board_id}', 'ThreadController@store');
+    Route::post('new-comment/{thread_id}', 'ThreadController@comment');
+});
