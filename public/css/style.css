@@ -25,6 +25,9 @@ textarea:focus, input:focus{
 blockquote{
     border: none!important;
 }
+.quote{
+    color: #789922!important;
+}
 /** Boards/Threads**/
 .ad{
     border: 1px solid #800;
@@ -93,6 +96,9 @@ blockquote{
     margin: 0!important;
     border-radius: 0!important;
 }
+.summary{
+    color:#707070;
+}
 .board-nav{
     color: #B86;
 }
@@ -125,18 +131,38 @@ blockquote{
     list-style-type: none;
 }
 
+.reply-container{
+    margin-left: 20px;
+}
+.reply{
+    background-color: #f0e0d6;
+    border: 1px solid #D9BFB7;
+    border-left: none;
+    border-top: none;
+    display: table;
+    padding: 2px;
+    margin: 10px;
+}
+.reply-container span {
+    float: left;
+
+}
+.comment-info {
+    overflow: auto;
+    margin: 0 20px;
+}
 .bottom-nav ul{
     text-align: center;
     border-top:1px solid #800;
 }
-.bottom-nav ul li.first{
-    border-left: 1px solid #800;
-}
+
 .bottom-nav ul li{
     display:inline;
     background-color: #fed;
-    margin: -2px;
+    margin: -3px;
     padding: 0 5px 5px 5px;
     border: 1px solid #800;
-    border-left: none;
+}
+.legal{
+    padding:10px;
 }
