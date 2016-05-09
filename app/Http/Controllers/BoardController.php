@@ -16,7 +16,7 @@ class BoardController extends Controller
         }
         $board = Board::where('board_url', $board_url)->first(); //this board
         $boards = Board::orderBy('board_url', 'asc')->paginate(50); //all boards, for menu
-        $threads = Thread::ofBoard($board->id)->orderBy('id', 'desc')->paginate(5); //all threads on this board.
+        $threads = Thread::ofBoard($board->id)->orderBy('updated_at', 'desc')->paginate(5); //all threads on this board.
         $comments = new Comment();
         return view('boards.index')->with('board', $board)->with('boards', $boards)->with('threads', $threads)->with('comments', $comments);
     }
