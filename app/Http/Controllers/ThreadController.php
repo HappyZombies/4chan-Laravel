@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Thread;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -12,7 +13,7 @@ use App\Http\Requests;
 class ThreadController extends Controller
 {
     public function store($board_id, Request $request){
-        $this->validate(request(), array(
+        $this->validate($request, array(
             'file' => 'required|image',
             'title'=> 'max:30',
             'author'=>'max:30',
@@ -32,5 +33,32 @@ class ThreadController extends Controller
         ]));
         Input::file('file')->move('uploads', $fileName);
         return back(); //redirect to thread made.
+    }
+
+    public function comment($thread_id, Request $request){
+        $this->validate($request, array(
+            'file' => 'image',
+            'title'=> 'max:30',
+            'author'=>'max:30',
+            'comment' => 'required|max:2000',
+        ));
+        $now = date('Y-m-d H:i:s', strtotime('now'));
+        $author = empty($request->input('author')) ? "Anonymous" : $request->input('author');
+        $comment =  preg_replace('#[\r\n]+#', "\n", $request->input('comment'));
+        $fileName = empty(Input::file('file')) ? "" : Input::file('file');
+        if(!empty($fileName)){
+            $extension = Input::file('file')->getClientOriginalExtension();
+            $fileName = uniqid().'.'.$extension;
+            Input::file('file')->move('uploads', $fileName);
+        }
+        $thread = Thread::findOrFail($thread_id);
+        $thread->comments()->save(new Comment([
+            'author'=>$author,
+            'comment'=>$comment,
+            'file'=>$fileName,
+        ]));
+        $thread->updated_at = $now; //to bump thread.
+        $thread->save();
+        return back();
     }
 }
