@@ -11,9 +11,9 @@ Getting Started
 You **need** to have [Laravel](https://laravel.com/) to run this site. 
 
 * Create your .env file accordingly 
+* You *made* need to update your config/database.php accordingly as well.
 * composer install
-* php artisan migrate
-* php artisane db:seed
+* php artisan migrate:refresh --seed
 * php artisan serve
 
-And your off! There is A LOT to be done, not all features of 4chan have been implemented yet, but are indeed in progress. Front-end will not look 100% like 4chan.org , but it will be fairl close. 
+And you're off! Not all features of 4chan have been implemented, but are in progress. Front-end will not look 100% like 4chan.org, but it will be fairly similar. 
