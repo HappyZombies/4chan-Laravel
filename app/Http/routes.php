@@ -11,6 +11,20 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
-Route::get('/board/{board_url}', 'BoardController@show');
-Route::get('/rules', 'HomeController@rules');
+Route::group(['prefix' => '/'], function(){
+    Route::get('/', 'HomeController@index');
+    Route::get('/news', 'HomeController@news');
+    Route::get('/blog', 'HomeController@blog');
+    Route::get('/faq', 'HomeController@faq');
+    Route::get('/rules', 'HomeController@rules');
+    Route::get('/support', 'HomeController@support');
+    Route::get('/advertise', 'HomeController@advertise');
+    Route::get('/press', 'HomeController@press');
+});
+Route::group(['prefix' => 'board'], function(){
+    Route::get('{board_url}', 'BoardController@index');
+    Route::get('{board_url}/thread/{thread}', 'BoardController@show');
+});
+
+
+Route::post('thread/new/{board_id}', 'ThreadController@store');
