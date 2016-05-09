@@ -29,7 +29,7 @@
     <div class="text-center newThread" >
         [<span>Post a Reply</span>]
         <div id="newThread-form" style="display: none;">
-            <form method="POST" autocomplete="off" enctype="multipart/form-data" action="/thread/{{ $board->id }}/new-comment/{{ $thread->id }}">
+            <form method="POST" autocomplete="off" enctype="multipart/form-data" action="/thread/new-comment/{{ $thread->id }}">
                 <div class="form-group row">
                     <label for="author" class="col-sm-2 form-control-label text-left">Author</label>
                     <div class="col-sm-10">
@@ -47,7 +47,7 @@
                 <div class="form-group row">
                     <label for="file" class="col-sm-2 form-control-label text-left">File</label>
                     <div class="col-sm-10">
-                        <input type="file" name="file" class="form-control-sm" id="file" maxlength="25" required="required">
+                        <input type="file" name="file" class="form-control-sm" id="file" maxlength="25">
                     </div>
                 </div>
 
