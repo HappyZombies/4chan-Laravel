@@ -27,20 +27,13 @@
     <hr>
     <!--Submit new Thread forum -->
     <div class="text-center newThread" >
-        [<span>Start a New Thread</span>]
+        [<span>Post a Reply</span>]
         <div id="newThread-form" style="display: none;">
-            <form method="POST" autocomplete="off" enctype="multipart/form-data" action="/thread/new/{{ $board->id }}">
+            <form method="POST" autocomplete="off" enctype="multipart/form-data" action="/thread/{{ $board->id }}/new-comment/{{ $thread->id }}">
                 <div class="form-group row">
                     <label for="author" class="col-sm-2 form-control-label text-left">Author</label>
                     <div class="col-sm-10">
                         <input type="text" name="author" class="form-control form-control-sm" id="author" placeholder="Anonymous" maxlength="25" value="{{ old('body') }}">
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label for="title" class="col-sm-2 form-control-label text-left">Title</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="title" class="form-control form-control-sm" id="title" maxlength="25" value="{{ old('body') }}">
                     </div>
                 </div>
 
