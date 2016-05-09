@@ -1,9 +1,10 @@
-@extends('layout.boards-show')
+@extends('layout.boards')
 @extends('layout.boards-menu')
 
 @section('content')
+    @if(!$threads->isEmpty())
+        @foreach($threads as $thread)
             <section class="thread-container id-{{ $thread->id  }} clearfix">
-                [ <a href="../">Return</a> ]
                 <hr>
                 <span class="hideIcon"><img src="{{ URL::asset('img') }}/expand.png"></span>
                 <div class="thread">
@@ -16,10 +17,11 @@
                     <span id="thread-author">{{ $thread->author }}</span>
                     <span id="thread-date">{{ $thread->created_at }}</span>
                     <span id="thread-id">No.{{ $thread->id }}</span>
-                    <blockquote id="thread-message">{{ $thread->comment }}</blockquote>
+                    <blockquote id="thread-message" class="comment">{!! nl2br(e($thread->comment)) !!}</blockquote>
+                    <span class="summary"><a href="{{ URL::asset('/') }}board/{{ $board->board_url }}/thread/{{ $thread->id }}">Click here</a> to view thread.</span>
                     <!-- Begin comments-->
                     <div class = "reply-container">
-                        @foreach($comments->ofThread($thread->id)->orderBy('created_at', 'asc')->get() as $thread_comments)
+                        @foreach($comments->ofThread($thread->id)->orderBy('created_at', 'desc')->take(5)->get()->reverse() as $thread_comments)
                             <span> >>> </span>
                             <div class="reply">
                                 <div class="comment-info">
@@ -35,11 +37,16 @@
                                         </a>
                                     </div>
                                 @endif
-                                <blockquote class="comment">{!! nl2br(e($thread_comments->comment)) !!}&nbsp;</blockquote>
+                                <blockquote  class="comment">{!! nl2br(e($thread_comments->comment)) !!}&nbsp;</blockquote>
                             </div>
                         @endforeach
                     </div>
                 </div>
+                <!--Begin Thread comments -->
             </section>
-    <hr>
+        @endforeach
+        {!! $threads->render() !!}
+    @else
+        <p>There are no threads.</p>
+    @endif
 @endsection
