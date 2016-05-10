@@ -25,14 +25,14 @@ class ThreadController extends Controller
         $fileName = uniqid().'.'.$extension;
         $board = Board::findOrFail($board_id);
         $comment =  preg_replace('#[\r\n]+#', "\n", $request->input('comment'));
-        $board->threads()->save(new Thread([
+        $thread = $board->threads()->save(new Thread([
             'author'=>$author,
             'title'=>$request->input('title'),
             'comment'=>$comment,
             'file'=>$fileName,
         ]));
         Input::file('file')->move('uploads', $fileName);
-        return back(); //redirect to thread made.
+        return redirect("/board/{$board->board_url}/thread/{$thread->id}"); //redirect to thread made.
     }
 
     public function comment($thread_id, Request $request){
