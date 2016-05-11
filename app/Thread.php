@@ -13,7 +13,4 @@ class Thread extends Model
     public function comments(){
         return $this->hasMany(Comment::class);
     }
-    public function scopeOfBoard($query, $board_id){
-        return $query->where('board_id', $board_id);
-    }
 }

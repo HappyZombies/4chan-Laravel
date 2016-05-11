@@ -2,7 +2,8 @@
 @extends('layout.boards-menu')
 
 @section('content')
-    @if(!$threads->isEmpty())
+    @if(!empty($board))
+        <?php $threads = $board->threads()->orderBy('updated_at', 'desc')->paginate(5); ?>
         @foreach($threads as $thread)
             <section class="thread-container id-{{ $thread->id  }} clearfix">
                 <hr>
@@ -21,13 +22,13 @@
                     <span class="summary"><a href="{{ URL::asset('/') }}board/{{ $board->board_url }}/thread/{{ $thread->id }}">Click here</a> to view thread.</span>
                     <!-- Begin comments-->
                     <div class = "reply-container">
-                        @foreach($comments->ofThread($thread->id)->orderBy('created_at', 'desc')->take(5)->get()->reverse() as $thread_comments)
-                            <span> >>> </span>
+                        @foreach($thread->comments()->orderBy('created_at', 'desc')->take(5)->get()->reverse() as $thread_comments)
+                            <span>>>>&nbsp;</span>
                             <div class="reply">
                                 <div class="comment-info">
                                     <span id="thread-author">{{ $thread_comments->author }}&nbsp;</span>
-                                    <span>{{ $thread_comments->id }}&nbsp;</span>
                                     <span><i>{{ $thread_comments->created_at }}</i>&nbsp;</span>
+                                    <span>No.{{ $thread_comments->id }}&nbsp;</span>
                                 </div>
                                 @if(!empty($thread_comments->file))
                                     <div class="threadThumbnail commentThumbnail">
@@ -42,10 +43,12 @@
                         @endforeach
                     </div>
                 </div>
-                <!--Begin Thread comments -->
+
             </section>
         @endforeach
+        <hr>
         {!! $threads->render() !!}
+        <!-- board->threads()->render() would go here -->
     @else
         <p>There are no threads.</p>
     @endif
