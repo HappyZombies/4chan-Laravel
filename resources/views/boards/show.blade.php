@@ -19,13 +19,13 @@
                     <blockquote id="thread-message">{{ $thread->comment }}</blockquote>
                     <!-- Begin comments-->
                     <div class = "reply-container">
-                        @foreach($comments->ofThread($thread->id)->orderBy('created_at', 'asc')->get() as $thread_comments)
-                            <span> >>> </span>
+                        @foreach($thread->comments()->orderBy('created_at', 'asc')->get() as $thread_comments)
+                            <span>>>>&nbsp;</span>
                             <div class="reply">
                                 <div class="comment-info">
                                     <span id="thread-author">{{ $thread_comments->author }}&nbsp;</span>
-                                    <span>{{ $thread_comments->id }}&nbsp;</span>
                                     <span><i>{{ $thread_comments->created_at }}</i>&nbsp;</span>
+                                    <span>No.{{ $thread_comments->id }}&nbsp;</span>
                                 </div>
                                 @if(!empty($thread_comments->file))
                                     <div class="threadThumbnail commentThumbnail">
