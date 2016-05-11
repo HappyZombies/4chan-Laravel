@@ -22,8 +22,8 @@ Route::group(['prefix' => '/'], function(){
     Route::get('/press', 'HomeController@press');
 });
 Route::group(['prefix' => 'board'], function(){
-    Route::get('{board_url}', 'BoardController@index');
-    Route::get('{board_url}/thread/{thread}', 'BoardController@show');
+    Route::get('{board}', 'BoardController@index');
+    Route::get('{board}/thread/{thread}', 'BoardController@show');
 });
 
 Route::group(['prefix' => 'thread'], function(){
