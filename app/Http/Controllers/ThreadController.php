@@ -12,6 +12,7 @@ use App\Http\Requests;
 
 class ThreadController extends Controller
 {
+    //We need to implement DRY
     public function store($board_id, Request $request){
         $this->validate($request, array(
             'file' => 'required|image',
