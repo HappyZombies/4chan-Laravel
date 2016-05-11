@@ -29,7 +29,7 @@
     <div class="text-center newThread" >
         [<span>Start a New Thread</span>]
         <div id="newThread-form" style="display: none;">
-            <form method="POST" autocomplete="off" enctype="multipart/form-data" action="/thread/new/{{ $board->id }}">
+            <form method="POST" autocomplete="off" enctype="multipart/form-data" action="/thread/new/{{ $board->board_url }}">
                 <div class="form-group row">
                     <label for="author" class="col-sm-2 form-control-label text-left">Author</label>
                     <div class="col-sm-10">

@@ -27,6 +27,6 @@ Route::group(['prefix' => 'board'], function(){
 });
 
 Route::group(['prefix' => 'thread'], function(){
-    Route::post('new/{board_id}', 'ThreadController@store');
-    Route::post('new-comment/{thread_id}', 'ThreadController@comment');
+    Route::post('new/{board}', 'ThreadController@store');
+    Route::post('new-comment/{thread}', 'ThreadController@comment');
 });
