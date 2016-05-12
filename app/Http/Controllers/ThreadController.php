@@ -9,18 +9,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests;
+use App\Http\Requests\ThreadRequest;
+use App\Http\Requests\CommentRequest;
 
 class ThreadController extends Controller
 {
-    public function store(Board $board, Request $request){
-        $this->validate($request, array(
-            'file' => 'required|image',
-            'title'=> 'max:30',
-            'author'=>'max:30',
-            'comment' => 'required|max:2000',
-        ));
-        $author = empty($request->input('author')) ? "Anonymous" : $request->input('author'); //db ?
+    public function store(ThreadRequest $request, Board $board){
+        $author = empty($request->input('author')) ? "Anonymous" : $request->input('author');
         $fileName = $this->addImage();
+
         $thread = $board->threads()->save(new Thread([
             'author'=>$author,
             'title'=>$request->input('title'),
@@ -30,16 +27,11 @@ class ThreadController extends Controller
         return redirect("/board/{$board->board_url}/thread/{$thread->id}");
     }
 
-    public function comment(Thread $thread, Request $request){
-        $this->validate($request, array(
-            'file' => 'image',
-            'title'=> 'max:30',
-            'author'=>'max:30',
-            'comment' => 'required|max:2000',
-        ));
+    public function comment(CommentRequest $request, Thread $thread){
         $now = date('Y-m-d H:i:s', strtotime('now'));
         $author = empty($request->input('author')) ? "Anonymous" : $request->input('author');
         $fileName = $this->addImage();
+
         $thread->comments()->save(new Comment([
             'author'=>$author,
             'comment'=>preg_replace('#[\r\n]+#', "\n", $request->input('comment')),
@@ -49,7 +41,6 @@ class ThreadController extends Controller
         $thread->save();
         return back();
     }
-
     private function addImage(){
         $fileName = empty(Input::file('file')) ? "" : Input::file('file'); // db ?
         if(!empty($fileName)){
