@@ -13,6 +13,7 @@ You **need** to have [Laravel](https://laravel.com/) to run this site.
 * Create your .env file accordingly 
 * You *may* need to update your config/database.php accordingly as well.
 * composer install
+* php artisan key:generate
 * php artisan migrate:refresh --seed
 * php artisan serve
 
