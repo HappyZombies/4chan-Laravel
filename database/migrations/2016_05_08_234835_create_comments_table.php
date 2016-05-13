@@ -16,7 +16,7 @@ class CreateCommentsTable extends Migration
             $table->increments('id');
             $table->integer('thread_id')->unsigned();
             $table->foreign('thread_id')->references('id')->on('threads');
-            $table->string('author');
+            $table->string('author')->default('Anonymous');
             $table->text('comment');
             $table->string('file');
             $table->timestamps();
