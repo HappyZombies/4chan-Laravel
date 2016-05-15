@@ -23,7 +23,7 @@
                     <!-- Begin comments-->
                     <div class = "reply-container">
                         @foreach($thread->comments()->orderBy('created_at', 'desc')->take(5)->get()->reverse() as $thread_comments)
-                            <span>>>>&nbsp;</span>
+                            <span  class="sideArrow">>>>&nbsp;</span>
                             <div class="reply">
                                 <div class="comment-info">
                                     <span id="thread-author">{{ $thread_comments->author }}&nbsp;</span>
