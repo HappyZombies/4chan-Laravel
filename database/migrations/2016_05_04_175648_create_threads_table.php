@@ -17,7 +17,7 @@ class CreateThreadsTable extends Migration
             $table->integer('board_id')->unsigned();
             $table->foreign('board_id')->references('id')->on('boards');
             $table->string('title');
-            $table->string('author');
+            $table->string('author')->default('Anonymous');
             $table->text('comment');
             $table->string('file');
             $table->timestamps();
